@@ -1,4 +1,8 @@
 # Databricks notebook source
+# /// script
+# [tool.databricks.environment]
+# environment_version = "5"
+# ///
 # MAGIC %md
 # MAGIC # Ingest sprints.json file
 # MAGIC 1. Read the all the files from the sprints folder using spark dataframe reader API

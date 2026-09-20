@@ -27,7 +27,19 @@
 
 -- COMMAND ----------
 
-CREATE OR REPLACE VIEW formula1.gold.v_driver_standing
+-- DBTITLE 1,Load environment config
+-- MAGIC %run ../00-common/01.environment-config
+
+-- COMMAND ----------
+
+-- DBTITLE 1,Set catalog context for SQL cells
+-- MAGIC %python
+-- MAGIC spark.sql(f"USE CATALOG {catalog_name}")
+
+-- COMMAND ----------
+
+-- DBTITLE 1,Create v_driver_standing view
+CREATE OR REPLACE VIEW gold.v_driver_standing
 AS
 WITH driver_session_summary
 AS
@@ -39,8 +51,8 @@ AS
         SUM(r.points) AS total_points,
         COUNT_IF(r.is_win) AS number_of_wins,
         COUNT_IF(r.is_podium) AS number_of_podiums
-    FROM formula1.gold.fact_session_results r
-    JOIN formula1.gold.dim_drivers d
+    FROM gold.fact_session_results r
+    JOIN gold.dim_drivers d
       ON r.driver_id = d.driver_id 
   GROUP BY r.season,
         d.driver_id,
@@ -60,4 +72,5 @@ SELECT season,
 
 -- COMMAND ----------
 
-SELECT * FROM formula1.gold.v_driver_standing WHERE season = 2025
+-- DBTITLE 1,Query v_driver_standing
+SELECT * FROM gold.v_driver_standing WHERE season = 2025
