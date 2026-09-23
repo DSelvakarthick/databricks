@@ -9,7 +9,8 @@
 
 -- COMMAND ----------
 
--- MAGIC %fs ls 'abfss://demo@databrickscourseextdl1.dfs.core.windows.net/'
+-- MAGIC %python
+-- MAGIC dbutils.fs.ls('abfss://demo@databrickscourseextdl1.dfs.core.windows.net/')
 
 -- COMMAND ----------
 

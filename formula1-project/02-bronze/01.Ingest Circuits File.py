@@ -88,7 +88,3 @@ display(circuits_final_df)
 # COMMAND ----------
 
 display(spark.table(table_name))
-
-# COMMAND ----------
-
-display(spark.table('formula1.bronze.circuits'))

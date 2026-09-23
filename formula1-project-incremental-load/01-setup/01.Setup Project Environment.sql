@@ -13,7 +13,8 @@
 
 -- COMMAND ----------
 
--- MAGIC %fs ls 'abfss://formula1-incr@databrickscourseextdl1.dfs.core.windows.net/landing'
+-- MAGIC %python
+-- MAGIC dbutils.fs.ls('abfss://formula1-incr@databrickscourseextdl1.dfs.core.windows.net/landing')
 
 -- COMMAND ----------
 
@@ -81,4 +82,5 @@ LOCATION 'abfss://formula1-incr@databrickscourseextdl1.dfs.core.windows.net/land
 
 -- COMMAND ----------
 
--- MAGIC %fs ls /Volumes/formula1_incr/landing/files
+-- MAGIC %python
+-- MAGIC dbutils.fs.ls('/Volumes/formula1_incr/landing/files')
